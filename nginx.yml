@@ -6,7 +6,6 @@ releases:
   version: latest
 
 stemcells:
-# Centos 3421.11 _appears_ not to work under BOSH Lite
 - alias: ubuntu
   os: ubuntu-trusty
   version: latest
@@ -61,12 +60,12 @@ instance_groups:
           mkdir -p $NGINX_DIR
           cd $NGINX_DIR
           cat > index.shtml <<EOF
-            <html><head><title>BOSH on IPv6</title>
+            <html><head><title>Bosh Nginx</title>
             </head><body>
             <h2>Welcome Avarteq!</h2>
             <h2>
             My hostname/IP: <b><!--# echo var="HTTP_HOST" --></b><br />
-            Your IP: <b><!--# echo var="REMOTE_ADDR" --></b>
+            Your IP: <b><!--# echo var="REMOTE_ADDR" --></b><br/><br/>
             Churs Bro!
             </h2>
             </body></html>
