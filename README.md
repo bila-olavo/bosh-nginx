@@ -3,7 +3,9 @@
 Simple Bosh release for Nginx
 
 1 - Configure Bosh CLI v2
+
 2 - Install Bosh lite on VirtualBox
+
 3 - Upload Stemcell for ubuntu
 ```bash
 bosh -e vbox us https://s3.amazonaws.com/bosh-core-stemcells/warden/bosh-stemcell-3468-warden-boshlite-ubuntu-trusty-go_agent.tgz
