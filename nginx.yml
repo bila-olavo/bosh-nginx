@@ -21,6 +21,13 @@ instance_groups:
   networks:
   - name: default
     static_ips: [ 10.244.0.34 ]
+#  networks:
+#   - name: default
+#     type: manual
+#     subnets:
+#       - range: 192.168.50.0/24
+# #        gateway: 192.168.50.1
+# #        static_ips: [ 192.168.50.10 ]
   jobs:
   - name: nginx
     release: nginx
@@ -42,7 +49,6 @@ instance_groups:
           server {
             server_name _; # invalid value which will never trigger on a real hostname.
             listen *:80;
-            # FIXME: replace all occurrences of 'example.com' with your server's FQDN
             access_log /var/vcap/sys/log/nginx/example.com-access.log;
             error_log /var/vcap/sys/log/nginx/example.com-error.log;
             root /var/vcap/data/nginx/document_root;
@@ -55,19 +61,16 @@ instance_groups:
         #!/bin/bash -ex
         NGINX_DIR=/var/vcap/data/nginx/document_root
         USER=admin
-        PASS="((nginx_basic_auth_password))"
+        PASS="avarteq;123"
         echo "${USER}:$(echo "${PASS}" | openssl passwd -apr1 -stdin)" >/var/vcap/data/nginx/htpasswd.conf
         if [ ! -d $NGINX_DIR ]; then
           mkdir -p $NGINX_DIR
           cd $NGINX_DIR
           cat > index.shtml <<EOF
-            <html><head><title>Avarteq challenger!</title>
+            <html><head><title>Avarteq challenge!</title>
             </head></html>
         EOF
         fi
-variables:
-  - name: nginx_basic_auth_password
-    type: password
 
 update:
   canaries: 1

@@ -17,4 +17,4 @@ nginx/pcre-8.40.tar.gz:
 patches/nginx-upload-module.patch:
   size: 657
   object_id: 27c1b860-1fcf-418a-7342-fca9ac3576c6
-sha: b8733bdb3f0c55a821add0476fb2b477a5a42634
+  sha: b8733bdb3f0c55a821add0476fb2b477a5a42634
