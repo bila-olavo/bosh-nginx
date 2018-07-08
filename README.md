@@ -2,6 +2,10 @@
 
 Simple Bosh release for Nginx
 
+#### Step by Step ####
+
+----
+
 1 - Configure Bosh CLI v2
 
 2 - Install Bosh lite on VirtualBox
